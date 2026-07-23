@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>67 Browser - Website Catalog</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="browser-container">
+    <!-- Browser Header/Address Bar -->
+    <div class="browser-header">
+      <div class="button-group">
+        <button class="nav-btn" id="back-btn" title="Back">←</button>
+        <button class="nav-btn" id="forward-btn" title="Forward">→</button>
+        <button class="nav-btn" id="refresh-btn" title="Refresh Catalog">⟳</button>
+      </div>
+      
+      <div class="address-bar-group">
+        <input 
+          type="text" 
+          id="address-bar" 
+          class="address-bar" 
+          value="67browser://catalog" 
+          readonly
+        />
+        <span class="lock-icon">🔒</span>
+      </div>
+    </div>
+
+    <!-- Search and Filter Bar -->
+    <div class="search-bar">
+      <input 
+        type="text" 
+        id="search-input" 
+        class="search-input" 
+        placeholder="Search websites... (by name, keywords, description)"
+      />
+      <button id="search-btn" class="search-btn">🔍 Search</button>
+      <button id="clear-btn" class="clear-btn">Clear</button>
+      <button id="submit-btn" class="submit-btn">➕ Submit Website</button>
+    </div>
+
+    <!-- Website Catalog -->
+    <div class="content-area">
+      <h1 class="page-title">67 Browser Website Catalog</h1>
+      <p class="catalog-info">📡 Live data from GitHub • Auto-updates when websites are added</p>
+      <div id="websites-container" class="websites-container"></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="browser-footer">
+      <span class="status">Loading...</span>
+      <span class="version">67Browser v1.0 | GitHub Synced</span>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
