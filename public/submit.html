@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Website to 67 Browser</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+      padding: 20px;
+    }
+
+    .submit-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 40px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .header p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+      font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="url"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="url"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .help-text {
+      font-size: 12px;
+      color: #999;
+      margin-top: 4px;
+    }
+
+    .keywords-input {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .keyword-tag {
+      background: #f0f0f0;
+      color: #667eea;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .keyword-tag button {
+      background: none;
+      border: none;
+      color: #667eea;
+      cursor: pointer;
+      font-size: 14px;
+      padding: 0;
+    }
+
+    .emoji-picker {
+      font-size: 48px;
+      margin: 16px 0;
+      padding: 12px;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .emoji-picker:hover {
+      background: #f5f5f5;
+    }
+
+    .emoji-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+      gap: 8px;
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 12px;
+      margin-top: 8px;
+    }
+
+    .emoji-option {
+      font-size: 32px;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 4px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .emoji-option:hover {
+      background: #f0f0f0;
+      transform: scale(1.2);
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .submit-btn {
+      background: #4caf50;
+      color: white;
+    }
+
+    .submit-btn:hover {
+      background: #45a049;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+    }
+
+    .cancel-btn {
+      background: #f0f0f0;
+      color: #333;
+      border: 1px solid #ddd;
+    }
+
+    .cancel-btn:hover {
+      background: #e0e0e0;
+    }
+
+    .info-box {
+      background: #e3f2fd;
+      border-left: 4px solid #2196f3;
+      padding: 12px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: #1565c0;
+    }
+
+    .success {
+      background: #e8f5e9;
+      border-left-color: #4caf50;
+      color: #2e7d32;
+    }
+
+    .error {
+      background: #ffebee;
+      border-left-color: #f44336;
+      color: #c62828;
+    }
+
+    @media (max-width: 600px) {
+      .submit-container {
+        padding: 24px;
+      }
+
+      .header h1 {
+        font-size: 20px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="submit-container">
+    <div class="header">
+      <h1>🌐 Submit Your Website</h1>
+      <p>Add your website to the 67 Browser catalog</p>
+    </div>
+
+    <div class="info-box">
+      ℹ️ Your submission will be reviewed and added to the catalog. It will automatically appear in all 67 Browsers once approved.
+    </div>
+
+    <form id="submitForm">
+      <!-- Website Name -->
+      <div class="form-group">
+        <label for="name">Website Name *</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          placeholder="e.g., My Portfolio" 
+          required
+          maxlength="50"
+        />
+        <div class="help-text">The name displayed in 67 Browser (max 50 characters)</div>
+      </div>
+
+      <!-- Website URL -->
+      <div class="form-group">
+        <label for="url">Website URL *</label>
+        <input 
+          type="url" 
+          id="url" 
+          name="url" 
+          placeholder="https://example.com" 
+          required
+        />
+        <div class="help-text">Must start with https:// or http://</div>
+      </div>
+
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description *</label>
+        <textarea 
+          id="description" 
+          name="description" 
+          placeholder="Briefly describe your website..." 
+          required
+          maxlength="200"
+        ></textarea>
+        <div class="help-text">Short description (max 200 characters)</div>
+      </div>
+
+      <!-- Icon/Emoji -->
+      <div class="form-group">
+        <label for="icon">Website Icon/Emoji *</label>
+        <div class="emoji-picker" id="emojiDisplay">🌐</div>
+        <button type="button" id="toggleEmoji" class="help-text" style="background: none; border: none; color: #667eea; cursor: pointer; text-decoration: underline;">Choose emoji...</button>
+        <input type="hidden" id="icon" name="icon" value="🌐">
+        <div id="emojiGrid" class="emoji-grid" style="display: none;">
+          <!-- Emojis will be populated by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Keywords -->
+      <div class="form-group">
+        <label for="keywords">Keywords (comma-separated) *</label>
+        <input 
+          type="text" 
+          id="keywords" 
+          placeholder="e.g., portfolio, design, web development" 
+          required
+        />
+        <div class="help-text">3-5 keywords to help users find your site</div>
+        <div id="keywordsList" class="keywords-input"></div>
+      </div>
+
+      <!-- Submitter Info -->
+      <div class="form-group">
+        <label for="submitter">Your Name / GitHub Username *</label>
+        <input 
+          type="text" 
+          id="submitter" 
+          placeholder="Your name or GitHub username" 
+          required
+          maxlength="50"
+        />
+        <div class="help-text">How you'll be credited in the catalog</div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="buttons">
+        <button type="button" class="cancel-btn" onclick="window.history.back()">Cancel</button>
+        <button type="submit" class="submit-btn">Submit Website</button>
+      </div>
+    </form>
+
+    <div id="message"></div>
+  </div>
+
+  <script>
+    const emojis = ['🎯', '📚', '✍️', '🛠️', '💻', '🎨', '🚀', '📱', '🌍', '💡', '🎓', '🎮', '🎬', '🎵', '🏆', '⚡', '🔒', '🔬', '🏥', '🏪', '🏦', '🏨', '🏫', '🏢', '🏭', '🏗️', '🗼', '🌆', '🌇', '🌃', '🎪', '🎭', '🎨'];
+
+    const form = document.getElementById('submitForm');
+    const iconInput = document.getElementById('icon');
+    const emojiDisplay = document.getElementById('emojiDisplay');
+    const toggleEmojiBtn = document.getElementById('toggleEmoji');
+    const emojiGrid = document.getElementById('emojiGrid');
+    const keywordsInput = document.getElementById('keywords');
+    const keywordsList = document.getElementById('keywordsList');
+    const messageDiv = document.getElementById('message');
+
+    // Populate emoji grid
+    emojis.forEach(emoji => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'emoji-option';
+      btn.textContent = emoji;
+      btn.onclick = (e) => {
+        e.preventDefault();
+        iconInput.value = emoji;
+        emojiDisplay.textContent = emoji;
+        emojiGrid.style.display = 'none';
+      };
+      emojiGrid.appendChild(btn);
+    });
+
+    toggleEmojiBtn.onclick = (e) => {
+      e.preventDefault();
+      emojiGrid.style.display = emojiGrid.style.display === 'none' ? 'grid' : 'none';
+    };
+
+    // Handle keywords
+    keywordsInput.addEventListener('input', () => {
+      const keywords = keywordsInput.value.split(',').map(k => k.trim()).filter(k => k);
+      keywordsList.innerHTML = keywords.map(keyword => `
+        <div class="keyword-tag">
+          ${keyword}
+          <button type="button" onclick="this.parentElement.remove()">×</button>
+        </div>
+      `).join('');
+    });
+
+    // Handle form submission
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const data = {
+        id: document.getElementById('name').value.toLowerCase().replace(/[^a-z0-9]/g, ''),
+        name: document.getElementById('name').value,
+        description: document.getElementById('description').value,
+        icon: document.getElementById('icon').value,
+        url: document.getElementById('url').value,
+        keywords: keywordsInput.value.split(',').map(k => k.trim()).filter(k => k),
+        browserAlias: `67browser://${document.getElementById('name').value.toLowerCase().replace(/[^a-z0-9]/g, '')}`,
+        submittedBy: document.getElementById('submitter').value,
+        submittedAt: new Date().toISOString().split('T')[0]
+      };
+
+      // Create GitHub issue with website submission
+      try {
+        const issueBody = `**New Website Submission for 67 Browser Catalog**
+
+**Website Name:** ${data.name}
+**URL:** ${data.url}
+**Description:** ${data.description}
+**Icon:** ${data.icon}
+**Keywords:** ${data.keywords.join(', ')}
+**Browser Alias:** ${data.browserAlias}
+**Submitted by:** ${data.submittedBy}
+**Date:** ${data.submittedAt}
+
+---
+
+**JSON Format (ready to add to websites.json):**
+\`\`\`json
+${JSON.stringify(data, null, 2)}
+\`\`\``;
+
+        // Redirect to GitHub issue creation
+        const gitHubIssueUrl = `https://github.com/evilpig1099/67browser/issues/new?title=Website Submission: ${encodeURIComponent(data.name)}&body=${encodeURIComponent(issueBody)}`;
+        
+        showMessage('Redirecting to GitHub to submit your website...', 'info');
+        setTimeout(() => {
+          window.location.href = gitHubIssueUrl;
+        }, 1500);
+
+      } catch (error) {
+        showMessage('Error processing submission: ' + error.message, 'error');
+      }
+    });
+
+    function showMessage(text, type) {
+      messageDiv.textContent = text;
+      messageDiv.className = `info-box ${type}`;
+    }
+  </script>
+</body>
+</html>
