@@ -1,0 +1,48 @@
+{
+  "websites": [
+    {
+      "id": "portfolio",
+      "name": "My Portfolio",
+      "description": "Personal portfolio and projects showcase",
+      "icon": "🎯",
+      "url": "https://github.com/evilpig1099",
+      "keywords": ["portfolio", "projects", "github", "showcase"],
+      "browserAlias": "67browser://portfolio",
+      "submittedBy": "evilpig1099",
+      "submittedAt": "2026-07-23"
+    },
+    {
+      "id": "docs",
+      "name": "Documentation",
+      "description": "API and project documentation",
+      "icon": "📚",
+      "url": "https://example.com/docs",
+      "keywords": ["docs", "api", "reference", "guide"],
+      "browserAlias": "67browser://docs",
+      "submittedBy": "evilpig1099",
+      "submittedAt": "2026-07-23"
+    },
+    {
+      "id": "blog",
+      "name": "Blog",
+      "description": "Technical articles and insights",
+      "icon": "✍️",
+      "url": "https://example.com/blog",
+      "keywords": ["blog", "articles", "tech", "insights"],
+      "browserAlias": "67browser://blog",
+      "submittedBy": "evilpig1099",
+      "submittedAt": "2026-07-23"
+    },
+    {
+      "id": "tools",
+      "name": "Developer Tools",
+      "description": "Useful development utilities",
+      "icon": "🛠️",
+      "url": "https://example.com/tools",
+      "keywords": ["tools", "utilities", "dev", "converter"],
+      "browserAlias": "67browser://tools",
+      "submittedBy": "evilpig1099",
+      "submittedAt": "2026-07-23"
+    }
+  ]
+}
